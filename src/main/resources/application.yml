@@ -1,0 +1,26 @@
+server:
+  port: 8091
+
+spring:
+  shardingsphere:
+    # 数据源
+    datasource:
+      names: ds1,ds2
+      ds1:
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://120.78.206.144:3306/ds_1?characterEncoding=utf-8
+        username: root
+        password: 123456
+      ds2:
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://120.78.206.144:3306/ds_2?characterEncoding=utf-8
+        username: root
+        password: 123456
+    sharding:
+      tables:
+        book:
+          actual-data-nodes: ds1.book
+        user:
+          actual-data-nodes: ds2.t_user
