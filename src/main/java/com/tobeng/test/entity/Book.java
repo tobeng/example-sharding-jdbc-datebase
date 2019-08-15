@@ -11,7 +11,7 @@ public class Book {
 
     @Id
     @Column(name = "b_id")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "b_name")
